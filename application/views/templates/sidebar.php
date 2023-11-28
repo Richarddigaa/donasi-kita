@@ -18,13 +18,13 @@
 <li class="nav-item active">
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link pb-0" href="<?= base_url('buku/kategori'); ?>">
+            <a class="nav-link pb-0" href="<?= base_url('admin'); ?>">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link pb-0" href="<?= base_url('buku'); ?>">
+            <a class="nav-link pb-0" href="<?= base_url('admin/kategori'); ?>">
                 <i class="fas fa-fw fa-bars"></i>
                 <span>Kategori</span>
             </a>
