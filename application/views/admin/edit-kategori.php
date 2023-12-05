@@ -7,9 +7,9 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Edit Kategori</h4>
-                    <form action="<?= base_url('admin/edit_kategori/' . $data->id) ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url('admin/edit_kategori/' . $data->id_kategori) ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="kategori" value="<?php echo $data->kategori; ?>" placeholder="" required />
+                            <input type="text" class="form-control" name="kategori" value="<?php echo $data->kategori; ?>" required />
                             <small class="text-danger"><?php echo form_error('kategori'); ?></small>
                         </div>
                         <div class="float-right">

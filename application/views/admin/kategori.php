@@ -31,8 +31,8 @@
                                         <td scope="row"><?php echo $i . '.'; ?></td>
                                         <td><span><?php echo $k['kategori']; ?></span></td>
                                         <td>
-                                            <a href="<?php echo base_url(); ?>admin/edit_kategori/<?php echo $k['id']; ?>" class="btn btn-primary mr-2"><i class="far fa-fw fa-edit mr-2"></i>Edit</a>
-                                            <a href="<?php echo base_url(); ?>admin/hapus_kategori/<?php echo $k['id']; ?>" class="btn btn-danger"><i class="fas fa-fw fa-trash mr-2"></i>Hapus</a>
+                                            <a href="<?php echo base_url(); ?>admin/edit_kategori/<?php echo $k['id_kategori']; ?>" class="btn btn-primary mr-2"><i class="far fa-fw fa-edit mr-2"></i>Edit</a>
+                                            <a href="<?php echo base_url(); ?>admin/hapus_kategori/<?php echo $k['id_kategori']; ?>" class="btn btn-danger"><i class="fas fa-fw fa-trash mr-2"></i>Hapus</a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>

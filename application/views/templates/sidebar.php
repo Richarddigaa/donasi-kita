@@ -30,7 +30,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link pb-0" href="<?= base_url('buku'); ?>">
+            <a class="nav-link pb-0" href="<?= base_url('admin/donasi'); ?>">
                 <i class="fas fa-fw fa-donate"></i>
                 <span>Donasi</span>
             </a>
