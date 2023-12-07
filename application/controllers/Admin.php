@@ -6,6 +6,9 @@ class Admin extends CI_Controller {
     public function index(){
         $data['title'] = 'Dashboard | Admin Donasi Kita';
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+
+        $data['totalDonasi'] = $this->db->get('donasi')->num_rows();
+		$data['totalKategori'] = $this->db->get('kategori')->num_rows();
         
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

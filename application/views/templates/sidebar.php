@@ -16,38 +16,31 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-            <a class="nav-link pb-0" href="<?= base_url('admin'); ?>">
-                <i class="fas fa-fw fa-home"></i>
-                <span>Dashboard</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link pb-0" href="<?= base_url('admin/kategori'); ?>">
-                <i class="fas fa-fw fa-bars"></i>
-                <span>Kategori</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link pb-0" href="<?= base_url('admin/donasi'); ?>">
-                <i class="fas fa-fw fa-donate"></i>
-                <span>Donasi</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link pb-0" href="<?= base_url('user/anggota'); ?>">
-                <i class="fas fa-fw fa-clipboard-check"></i>
-                <span>Konfirmasi Donasi</span>
-            </a>
-        </li>
-</li>
-
-
-<li class="nav-item">
-    <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
-        <i class="fas fa-fw fa-sign-out-alt"></i>
-        <span>Logout</span></a>
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin'); ?>">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/kategori'); ?>">
+            <i class="fas fa-fw fa-bars"></i>
+            <span>Kategori</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/donasi'); ?>">
+            <i class="fas fa-fw fa-donate"></i>
+            <span>Donasi</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/anggota'); ?>">
+            <i class="fas fa-fw fa-clipboard-check"></i>
+            <span>Konfirmasi Donasi</span>
+        </a>
+    </li>
 </li>
 
 <!-- Divider -->

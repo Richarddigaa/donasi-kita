@@ -93,7 +93,7 @@ class Auth extends CI_Controller {
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'gambar' => 'default.jpg',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'role_id' => 1,
+                'role_id' => 2,
                 'tanggal_input' => time()
             ];
 
@@ -101,7 +101,7 @@ class Auth extends CI_Controller {
 
             $this->session->set_flashdata('pesan', 
                 '<div class="alert alert-success alert-message" role="alert">Selamat!! 
-                    akun member anda sudah dibuat. Silahkan login!</div>
+                    akun anda sudah dibuat. Silahkan login!</div>
                     <meta http-equiv="refresh" content="2">');
             redirect('auth');
         }
