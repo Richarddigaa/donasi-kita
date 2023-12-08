@@ -1,15 +1,21 @@
 
 <!-- Header-->
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Shop in style</h1>
-            <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+<header>
+    <div class="container-fluid banner d-flex align-items-center">
+        <div class="container text-center text-black">
+            <div class="col-md-8 offset-md-2">
+                <form method="get" action="<?= base_url('user/donasi') ?>">
+                    <div class="input-group input-group-lg my-4">
+                        <input type="text" class="form-control" placeholder="Cari Donasi" aria-label="Cari Donasi" aria-describedby="basic-addon2" name="keyword">
+                        <button type="submit" class="btn btn-primary text-white">Telusuri</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </header>
 
-<div class="py-5">
+<div class="container-fluid warna1 py-5">
     <div class="container text-center">
         <h3>Tentang Kami</h3>
         <p class="fs-5 mt-3">
@@ -27,7 +33,7 @@
 
 <section class="py-5">
     <div class="container text-center">
-        <h3>Ayo Langsung Berdonasi</h3>
+        <h3>Bantu Mereka Yang Membutuhkan</h3>
     </div>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

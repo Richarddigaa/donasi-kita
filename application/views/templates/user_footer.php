@@ -6,5 +6,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?= base_url('assets/'); ?>user-assets/startbootstrap-shop-homepage-gh-pages/js/scripts.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
     </body>
 </html>
