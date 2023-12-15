@@ -9,6 +9,8 @@ class Admin extends CI_Controller {
 
         $data['totalDonasi'] = $this->db->get('donasi')->num_rows();
 		$data['totalKategori'] = $this->db->get('kategori')->num_rows();
+        $data['totalPembayaran'] = $this->db->get('pembayaran')->num_rows();
+        $data['totalRiwayat'] = $this->db->get('user_berdonasi')->num_rows();
         
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -160,6 +162,9 @@ class Admin extends CI_Controller {
         $this->form_validation->set_rules('dana_dibutuhkan', 'Dana Yang Dibutuhkan', 'required', [
             'required' => 'Dana Yang Dibutuhkan harus diisi'
         ]);
+        $this->form_validation->set_rules('dana_terkumpul', 'Dana Yang Terkumpul', 'required', [
+            'required' => 'Dana Yang Terkumpul harus diisi'
+        ]);
         $this->form_validation->set_rules('detail', 'Detail', 'required|min_length[3]', [
             'required' => 'Detail harus diisi',
             'min_length' => 'Detail terlalu pendek'
@@ -197,6 +202,138 @@ class Admin extends CI_Controller {
                                 '<div class="alert alert-success alert-message" role="alert">Donasi berhasil diubah</div>
                                 <meta http-equiv="refresh" content="2">');
             redirect('admin/donasi');
+        }
+    }
+
+    public function pembayaran(){
+        $data['title'] = 'Metode Pembayaran | Admin Donasi Kita';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+
+        $data['pembayaran'] = $this->db->get('pembayaran')->result_array();
+
+        $this->form_validation->set_rules('pembayaran', 'Pembayaran', 'required|min_length[3]', 
+                                        ['required' => 'Nama Pembayaran harus diisi', 'min_length' => 'Nama Pembayaran terlalu pendek']);
+
+        $this->form_validation->set_rules('rekening', 'Rekening', 'required|min_length[3]', 
+                                        ['required' => 'No Rekening harus diisi', 'min_length' => 'No Rekening terlalu pendek']);
+        
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/pembayaran', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->db->insert('pembayaran', [
+                    'nama_pembayaran' => $this->input->post('pembayaran'),
+                    'rekening' => $this->input->post('rekening')
+            ]);
+            $this->session->set_flashdata('pesan', 
+                                    '<div class="alert alert-success alert-message" role="alert">Metode Pembayaran berhasil ditambahkan</div>
+                                    <meta http-equiv="refresh" content="2">');
+            redirect('admin/pembayaran');
+        }
+    }
+
+    public function edit_pembayaran($id){
+        $data['title'] = 'Ubah Metode Pembayaran | Admin Donasi Kita';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+
+        $data['data'] = $this->ModelAdmin->getrow(array('id_pembayaran' => $id), 'pembayaran');
+
+        $this->form_validation->set_rules('pembayaran', 'Pembayaran', 'required|min_length[3]', 
+                                        ['required' => 'Nama Pembayaran harus diisi', 'min_length' => 'Nama Pembayaran terlalu pendek']);
+
+        $this->form_validation->set_rules('rekening', 'Rekening', 'required|min_length[3]', 
+                                        ['required' => 'No Rekening harus diisi', 'min_length' => 'No Rekening terlalu pendek']);
+        
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/edit-pembayaran', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $simpan = [
+                'nama_pembayaran' => $this->input->post('pembayaran'),
+                'rekening' => $this->input->post('rekening')
+            ];
+			$this->db->where('id_pembayaran', $id);
+			$this->db->update('pembayaran', $simpan);
+			$this->session->set_flashdata('pesan', 
+                                    '<div class="alert alert-success alert-message" role="alert">Metode Pembayaran berhasil diupdate</div>
+                                    <meta http-equiv="refresh" content="2">');
+			redirect('admin/pembayaran');
+        }
+    }
+
+    public function riwayatDonasi(){
+        $data['title'] = 'Riwayat Donasi | Admin Donasi Kita';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+
+        $data['riwayatDonasi'] = $this->db->get('user_berdonasi')->result_array();
+        
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/riwayatDonasi', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function profile(){
+        $data['title'] = 'Profile Saya | Admin Donasi Kita';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/profile', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function ubahProfile(){
+        $data['title'] = 'Ubah Profile | Donasi Kita';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules(
+            'nama',
+            'Nama Lengkap',
+            'required|trim',
+            ['required' => 'Nama tidak Boleh Kosong']
+        );
+        
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/ubah-profile', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $nama = $this->input->post('nama', true);
+            $email = $this->input->post('email', true);
+            //jika ada gambar yang akan diupload 
+            $config['upload_path'] = './assets/img/profile/';
+            $config['allowed_types'] = 'jpeg|jpg|png';
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('image')) {
+                $gambar_lama = $data['user']['gambar'];
+                if ($gambar_lama != 'logo-donasi.png') {
+                    unlink(FCPATH . 'assets/img/profile/' . $gambar_lama);
+                }
+                $gambar_baru = $this->upload->data('file_name');
+                $this->db->set('gambar', $gambar_baru);
+            } else {
+                echo "gagal";
+            }
+            
+            $this->db->set('nama', $nama);
+            $this->db->where('email', $email);
+            $this->db->update('user');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Profil Berhasil diubah </div>
+                                            <meta http-equiv="refresh" content="2">');
+            redirect('admin/profile');
         }
     }
 }

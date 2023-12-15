@@ -26,10 +26,10 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">Judul Donasi</th>
+                                        <th scope="col">Judul</th>
                                         <th scope="col">Kategori</th>
                                         <th scope="col">Dana Yang Dibutuhkan</th>
-                                        <th scope="col">Dana Yang Sudah Terkumpul</th>
+                                        <th scope="col">Dana Yang Terkumpul</th>
                                         <th scope="col">Detail</th>
                                         <th scope="col">Foto</th>
                                         <th scope="col">Opsi</th>
@@ -87,14 +87,14 @@
                             <option value="">Pilih Kategori</option>
                             <?php
                             foreach ($kategori as $k) { ?>
-                                <option value="<?= $k['id']; ?>"><?= $k['kategori']; ?></option> <?php } ?>
+                                <option value="<?= $k['id_kategori']; ?>"><?= $k['kategori']; ?></option> <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <input type="number" class="form-control form-control-user" id="dana_dibutuhkan" name="dana_dibutuhkan" placeholder="Masukkan Dana Yang Dibutuhkan">
                     </div>
                     <div class="form-group">
-                        <input name="detail" id="detail" cols="50" rows="5" placeholder="Masukan Detail Donasi"></input>
+                        <textarea name="detail" id="detail" cols="30" rows="10" class="form-control form-control-user" placeholder="Masukkan Detail Donasi"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="file" class="form-control form-control-user" id="gambar" name="gambar">

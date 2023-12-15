@@ -10,4 +10,9 @@ class ModelUser extends CI_Model {
     public function simpanData($data = null){
         $this->db->insert('user', $data);
     }
+
+    public function simpanBerdonasi($data = null)
+    {
+        $this->db->insert('user_berdonasi', $data);
+    }
 }

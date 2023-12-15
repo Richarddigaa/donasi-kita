@@ -36,4 +36,9 @@ class ModelAdmin extends CI_Model {
     {
         $this->db->update('donasi', $data, $where);
     }
+
+	public function berdonasiWhere($where)
+    {
+        return $this->db->get_where('user_berdonasi', $where);
+    }
 }

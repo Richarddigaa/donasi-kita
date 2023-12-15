@@ -24,7 +24,7 @@
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="email" name="email" value="<?=set_value('email'); ?>"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Email">
                                             <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                         <div class="form-group">
@@ -38,10 +38,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Lupa Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="<?= base_url('auth/register'); ?>">Register!</a>
+                                        <a class="small" href="<?= base_url('auth/register'); ?>">Kamu belum punya akun ? Register!</a>
                                     </div>
                                 </div>
                             </div>

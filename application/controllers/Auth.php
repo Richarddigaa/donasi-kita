@@ -43,7 +43,7 @@ class Auth extends CI_Controller {
                 if ($user['role_id'] == 1) {
                     redirect('admin');
                 } else {
-                    if ($user['image'] == 'default.jpg') {
+                    if ($user['image'] == 'logo-donasi.png') {
                          $this->session->set_flashdata('pesan', 
                             '<div class="alert alert-info alert-message" role="alert">Silahkan 
                             Ubah Profile Anda untuk Ubah Photo Profil</div>');
@@ -91,7 +91,7 @@ class Auth extends CI_Controller {
         } else {
             $data = ['nama' => htmlspecialchars($this->input->post('name', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
-                'gambar' => 'default.jpg',
+                'gambar' => 'logo-donasi.png',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 2,
                 'tanggal_input' => time()

@@ -25,6 +25,7 @@
 ?>
 
 <div class="container py-5">
+     <?php echo $this->session->flashdata('pesan'); ?>
     <div class="row">
         <div class="col-lg-3 mb-5">
             <h3>Kategori</h3>
@@ -55,10 +56,10 @@
                             <div class="card-body">
                                 <h4 class="fw-bolder"><?php echo $d['judul']; ?></h4>
                                 <p class="card-text text-truncate"><?php echo $d['detail']; ?></p>
-                                <p class="card-text text-harga"><?= "Dana yang sudah terkumpul Rp. " . number_format($d['dana_terkumpul'], 2, ',', '.'); ?> </p>
+                                <p class="card-text text-harga"><?= "Dana yang sudah terkumpul Rp. " . number_format($d['dana_terkumpul']); ?> </p>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?= base_url('user/detailDonasi/') . $d['id']; ?>">Ayo Berdonasi</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?= base_url('user/detailDonasi/') . $d['id']; ?>">Bantu Mereka</a></div>
                             </div>
                         </div>
                     </div>

@@ -19,9 +19,9 @@
     <div class="container text-center">
         <h3>Tentang Kami</h3>
         <p class="fs-5 mt-3">
-            PRIHATIN Cakery adalah bisnis menengah yang bergerak dalam industri kuliner, terutama dalam hal berbagai macam kue.
-            PRIHATIN Cakery unggul dalam penjualan. dimana setiap langkah-langkah operasinya masih dilakukan secara manual untuk melayani pelanggannya dalam hal penjualan dan pembelian.
-            Sistem informasi perusahaan ini sangat penting untuk memudahkan pelayanan dan mengefektifkan kinerja yang berkualitas terhadap pelanggan.
+            Berawal dari ikut kegiatan aksi sosial secara langsung dan nyata, kami ingin bertransformasi dari sistem turun ke jalan yang konvensional menjadi sistem online.
+            Para founder dan pengurus saling sepakat untuk memberikan nama baru yang mempunyai makna lebih besar dari sebelumnya agar bisa mencapai tujuan yang lebih baik untuk bersama. 
+            Dengan hadir nama baru Yayasan Donasi Kami, disini kami menyediakan wadah donasi online / penggalangan dana online melalui website kami. Untuk memudahkan penyaluran donasi kepada seluruh masyarakat yang membutuhkan dan lebih transparan untuk para pemberi donasi.
         </p>
     </div>
 </div>
@@ -53,11 +53,14 @@
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?= base_url('user/detailDonasi/') . $d['id']; ?>">Ayo Berdonasi</a></div>
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?= base_url('user/detailDonasi/') . $d['id']; ?>">Bantu Mereka</a></div>
                     </div>
                 </div>
             </div>
             <?php } ?>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?= base_url('user/donasi') ?>">Lihat Semua</a></div>
+            </div>
         </div>
     </div>
 </section>

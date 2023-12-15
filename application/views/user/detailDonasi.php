@@ -10,13 +10,13 @@
                 <p class="fs-5">
                     <?php echo $d['detail']; ?>
                 </p>
-                <p class="text-harga">
+                <p class="fs-5">
                     <?= "Dana yang dibutuhkan Rp. " . number_format($d['dana_dibutuhkan']); ?>
                 </p>    
-                <p class="text-harga">
+                <p class="fs-5">
                     <?= "Dana yang sudah terkumpul Rp. " . number_format($d['dana_terkumpul']); ?>
                 </p>
-                <a class="btn btn-outline-dark mt-auto" href="<?= base_url('user/detailDonasi/') . $d['id']; ?>">Bantu Mereka</a>
+                <a class="btn btn-outline-dark mt-auto" href="<?= base_url('user/berdonasi/') . $d['id']; ?>">Donasi Sekarang</a>
             </div>
         </div>
         <?php } ?>
